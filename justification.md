@@ -1283,9 +1283,7 @@ But still lacks:
 3.8 / 5
 ```
 
-# justification.md
 
-```md
 # Justification & Comparative Evaluation Framework
 
 ## Project Context
@@ -1317,6 +1315,8 @@ The purpose of this evaluation is to analyze:
 This framework is designed to justify which response performs better overall and why.
 
 ---
+
+
 
 # Comparison Overview
 
@@ -1600,6 +1600,3 @@ Both responses successfully describe an AI-powered disaster management platform,
 Response B provides useful conceptual architecture guidance but lacks the implementation completeness and technical cohesion necessary for a fully actionable solution.
 
 Therefore, Response A is the preferred response for practical development and technical execution.
-```
-
-
