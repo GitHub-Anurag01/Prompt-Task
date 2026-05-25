@@ -1,12 +1,12 @@
 # Deployed Link: https://lively-scone-d3b5dc.netlify.app/
 
-# ⚡ DisasterAI — Prediction & Emergency Response System
+# DisasterAI — Prediction & Emergency Response System
 
 An intelligent AI-powered Disaster Prediction & Emergency Response System built with pure HTML, CSS, and JavaScript. No frameworks, no installations — just open `index.html` in any browser and it runs instantly.
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 disaster-system/
@@ -20,17 +20,17 @@ disaster-system/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Download and unzip the project
 2. Open `index.html` in any modern browser (Chrome, Firefox, Edge, Safari)
 3. No server, no npm, no installation needed
 
-> ✅ Works completely offline after loading Google Fonts (optional)
+> Works completely offline after loading Google Fonts (optional)
 
 ---
 
-## 🌐 Technology Stack
+## Technology Stack
 
 | Layer | Technology |
 |---|---|
@@ -43,28 +43,28 @@ disaster-system/
 
 ---
 
-## 🧩 Features & Sections
+##  Features & Sections
 
-### 🏠 Home Page
+###  Home Page
 - Animated rotating globe (Canvas)
 - Live monitoring status badge
 - Animated statistics counter (Accuracy, Sensors, Regions)
 - Floating disaster alert badges
 - Quick navigation to Predict and Dashboard
 
-### 🔮 Disaster Prediction (3 Models)
+###  Disaster Prediction (3 Models)
 
-#### 🌍 Earthquake Prediction
+####  Earthquake Prediction
 - **Algorithm:** Random Forest Regressor (simulated)
 - **Inputs:** Latitude, Longitude, Depth (km), Tectonic Zone
 - **Output:** Predicted magnitude, risk level (LOW / MEDIUM / HIGH / CRITICAL), risk score %, and safety recommendations
 
-#### 🌊 Flood Prediction
+####  Flood Prediction
 - **Algorithm:** Random Forest Classifier (simulated)
 - **Inputs:** Rainfall (mm/day), River Level (m), Soil Saturation (%), Elevation (m), Duration (hours)
 - **Output:** Flood occurrence probability, risk classification, and action steps
 
-#### 🌀 Hurricane Prediction
+####  Hurricane Prediction
 - **Algorithm:** Random Forest Model (simulated)
 - **Inputs:** Max Wind Speed (mph), Central Pressure (mb), Sea Surface Temperature (°C), Location
 - **Output:** Saffir-Simpson category (1–5), intensity score, and evacuation guidance
@@ -75,19 +75,19 @@ All prediction results include:
 - Parameter breakdown table
 - Tailored recommendations list
 
-### 🔍 Victim Detection (YOLO Simulation)
+###  Victim Detection (YOLO Simulation)
 - Upload any image (JPG, PNG)
 - Simulated YOLO v8 object detection runs on the image
 - Draws bounding boxes — red for injured, green for safe persons
 - Displays detection stats: total persons, injured estimate, safe count, confidence score
 - Generates rescue priority guidance based on detections
 
-### 🚨 Alerts & Recommendations
+###  Alerts & Recommendations
 - **Live Global Alerts Feed** — real-time styled alert cards (Critical / High / Medium / Low)
 - **Location Alert Checker** — enter any city or coordinates to get a risk assessment
 - **Safety Recommendations** — tabbed tips for Earthquake, Flood, and Hurricane preparedness
 
-### 📊 Monitoring Dashboard
+###  Monitoring Dashboard
 - **Global Risk Map** — Canvas-drawn map with hotspot overlays for active events
 - **Seismic Activity Chart** — 24-hour waveform graph with spike visualization
 - **Rainfall Index Chart** — 7-day bar chart with flood threshold highlighting
@@ -95,7 +95,7 @@ All prediction results include:
 - **Active Events List** — Color-coded live event tracker
 - **Response Teams Status** — Field team deployment status (Active / Deployed / Standby)
 
-### 🤖 AI Chatbot (ARIA)
+###  AI Chatbot (ARIA)
 - ARIA = AI Response Intelligence Assistant
 - Responds to natural language queries about disaster preparedness
 - Covers: earthquake safety, flood preparation, hurricane evacuation, model accuracy, YOLO detection, emergency kit checklist
@@ -105,7 +105,7 @@ All prediction results include:
 
 ---
 
-## 🎨 Design System
+##  Design System
 
 | Token | Value |
 |---|---|
@@ -121,7 +121,7 @@ All prediction results include:
 
 ---
 
-## 🤖 AI Model Logic (Simulated)
+##  AI Model Logic (Simulated)
 
 Since this is a frontend-only build, the ML models are simulated in JavaScript using weighted factor formulas that mirror how actual Random Forest models prioritize features.
 
@@ -148,7 +148,7 @@ Risk thresholds:
 
 ---
 
-## 🔌 Backend Integration (For Production)
+##  Backend Integration (For Production)
 
 To connect real ML models, replace the `predict*()` functions in `js/app.js` with Axios/Fetch calls to a Flask backend:
 
@@ -178,7 +178,7 @@ Suggested Flask API endpoints:
 
 ---
 
-## 📦 Dependencies
+##  Dependencies
 
 All external resources are loaded via CDN (internet required for fonts only):
 
@@ -191,7 +191,7 @@ No npm packages. No build tools. No bundlers.
 
 ---
 
-## 📱 Responsive Breakpoints
+##  Responsive Breakpoints
 
 | Breakpoint | Layout |
 |---|---|
@@ -201,7 +201,7 @@ No npm packages. No build tools. No bundlers.
 
 ---
 
-## ⚠️ Error Handling
+##  Error Handling
 
 - All prediction forms validate required inputs before processing
 - Empty fields trigger a toast notification warning
@@ -210,7 +210,7 @@ No npm packages. No build tools. No bundlers.
 
 ---
 
-## 🗺️ System Workflow
+##  System Workflow
 
 ```
 User Input
@@ -243,7 +243,7 @@ Rescue Guidance Output
 
 ---
 
-## 👤 Author Notes
+##  Author Notes
 
 This project is a complete frontend prototype of an AI-based disaster management platform. It demonstrates the full UI/UX, data flow, and user experience of the system. All AI predictions are simulated client-side using weighted algorithms that replicate the behavior of trained Random Forest models.
 
@@ -251,4 +251,4 @@ For a production system, replace the JavaScript simulation functions with real A
 
 ---
 
-> **DisasterAI** — Predicting disasters before they predict us. ⚡
+> **DisasterAI** — Predicting disasters before they predict us. 
