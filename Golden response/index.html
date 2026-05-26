@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DisasterAI — Prediction & Emergency Response System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">⚡</span>
+    <span class="brand-text">DisasterAI</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+    <li><a href="#prediction" class="nav-link" data-section="prediction">Predict</a></li>
+    <li><a href="#detection" class="nav-link" data-section="detection">Detection</a></li>
+    <li><a href="#alerts" class="nav-link" data-section="alerts">Alerts</a></li>
+    <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
+    <li><a href="#chatbot" class="nav-link" data-section="chatbot">AI Chat</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+
+<!-- HOME SECTION -->
+<section id="home" class="section active">
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="scanline"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span> LIVE MONITORING ACTIVE
+    </div>
+    <h1 class="hero-title">
+      DISASTER<br/><span class="accent">PREDICTION</span><br/>SYSTEM
+    </h1>
+    <p class="hero-subtitle">Advanced AI-Powered Natural Disaster Forecasting, Real-Time Environmental Monitoring & Emergency Response Intelligence Platform</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num" data-target="94">0</div>
+        <div class="stat-label">% Accuracy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="247">0</div>
+        <div class="stat-label">Sensors Active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Regions Monitored</div>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="navigate('prediction')">Start Prediction</button>
+      <button class="btn-secondary" onclick="navigate('dashboard')">View Dashboard</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="globe-container">
+      <canvas id="globeCanvas" width="400" height="400"></canvas>
+      <div class="globe-ring"></div>
+      <div class="globe-ring ring2"></div>
+    </div>
+    <div class="floating-alerts">
+      <div class="float-alert alert-eq">🌍 EQ M5.2 — Japan</div>
+      <div class="float-alert alert-flood">🌊 Flood Watch — Bangladesh</div>
+      <div class="float-alert alert-hurricane">🌀 Category 3 — Gulf Coast</div>
+    </div>
+  </div>
+</section>
+
+<!-- PREDICTION SECTION -->
+<section id="prediction" class="section">
+  <div class="section-header">
+    <h2 class="section-title">DISASTER <span class="accent">PREDICTION</span></h2>
+    <p class="section-sub">AI/ML Models for Earthquake, Flood & Hurricane Forecasting</p>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="earthquake">🌍 Earthquake</button>
+      <button class="tab-btn" data-tab="flood">🌊 Flood</button>
+      <button class="tab-btn" data-tab="hurricane">🌀 Hurricane</button>
+    </div>
+
+    <!-- EARTHQUAKE TAB -->
+    <div class="tab-panel active" id="tab-earthquake">
+      <div class="panel-grid">
+        <div class="form-card">
+          <h3>Earthquake Risk Analysis</h3>
+          <p class="form-desc">Random Forest Regressor — Magnitude Prediction</p>
+          <div class="form-group">
+            <label>Latitude</label>
+            <input type="number" id="eq-lat" placeholder="e.g. 35.6762" step="0.0001"/>
+          </div>
+          <div class="form-group">
+            <label>Longitude</label>
+            <input type="number" id="eq-lon" placeholder="e.g. 139.6503" step="0.0001"/>
+          </div>
+          <div class="form-group">
+            <label>Depth (km)</label>
+            <input type="number" id="eq-depth" placeholder="e.g. 10" min="0" max="700"/>
+          </div>
+          <div class="form-group">
+            <label>Tectonic Zone</label>
+            <select id="eq-zone">
+              <option value="subduction">Subduction Zone</option>
+              <option value="transform">Transform Fault</option>
+              <option value="divergent">Divergent Boundary</option>
+              <option value="intraplate">Intraplate</option>
+            </select>
+          </div>
+          <button class="btn-predict" onclick="predictEarthquake()">
+            <span class="btn-icon">⚡</span> Analyze Risk
+          </button>
+        </div>
+        <div class="result-card" id="eq-result">
+          <div class="result-placeholder">
+            <div class="placeholder-icon">🌍</div>
+            <p>Enter parameters and click Analyze Risk</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOOD TAB -->
+    <div class="tab-panel" id="tab-flood">
+      <div class="panel-grid">
+        <div class="form-card">
+          <h3>Flood Risk Analysis</h3>
+          <p class="form-desc">Random Forest Classifier — Flood Occurrence Prediction</p>
+          <div class="form-group">
+            <label>Rainfall (mm/day)</label>
+            <input type="number" id="fl-rain" placeholder="e.g. 120" min="0"/>
+          </div>
+          <div class="form-group">
+            <label>River Level (m)</label>
+            <input type="number" id="fl-river" placeholder="e.g. 5.2" step="0.1"/>
+          </div>
+          <div class="form-group">
+            <label>Soil Saturation (%)</label>
+            <input type="range" id="fl-soil" min="0" max="100" value="50" oninput="document.getElementById('fl-soil-val').textContent=this.value+'%'"/>
+            <span id="fl-soil-val" class="range-val">50%</span>
+          </div>
+          <div class="form-group">
+            <label>Elevation (m)</label>
+            <input type="number" id="fl-elev" placeholder="e.g. 45" min="0"/>
+          </div>
+          <div class="form-group">
+            <label>Duration (hours)</label>
+            <input type="number" id="fl-dur" placeholder="e.g. 24" min="1"/>
+          </div>
+          <button class="btn-predict" onclick="predictFlood()">
+            <span class="btn-icon">🌊</span> Analyze Risk
+          </button>
+        </div>
+        <div class="result-card" id="fl-result">
+          <div class="result-placeholder">
+            <div class="placeholder-icon">🌊</div>
+            <p>Enter parameters and click Analyze Risk</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HURRICANE TAB -->
+    <div class="tab-panel" id="tab-hurricane">
+      <div class="panel-grid">
+        <div class="form-card">
+          <h3>Hurricane Intensity Prediction</h3>
+          <p class="form-desc">Random Forest Model — Category & Wind Speed Forecast</p>
+          <div class="form-group">
+            <label>Max Wind Speed (mph)</label>
+            <input type="number" id="hu-wind" placeholder="e.g. 120" min="0" max="200"/>
+          </div>
+          <div class="form-group">
+            <label>Central Pressure (mb)</label>
+            <input type="number" id="hu-press" placeholder="e.g. 950" min="850" max="1013"/>
+          </div>
+          <div class="form-group">
+            <label>Sea Surface Temp (°C)</label>
+            <input type="number" id="hu-sst" placeholder="e.g. 29" min="0" max="40" step="0.1"/>
+          </div>
+          <div class="form-group">
+            <label>Storm Location</label>
+            <select id="hu-loc">
+              <option value="atlantic">Atlantic Basin</option>
+              <option value="pacific">Eastern Pacific</option>
+              <option value="gulf">Gulf of Mexico</option>
+              <option value="caribbean">Caribbean</option>
+            </select>
+          </div>
+          <button class="btn-predict" onclick="predictHurricane()">
+            <span class="btn-icon">🌀</span> Analyze Risk
+          </button>
+        </div>
+        <div class="result-card" id="hu-result">
+          <div class="result-placeholder">
+            <div class="placeholder-icon">🌀</div>
+            <p>Enter parameters and click Analyze Risk</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETECTION SECTION -->
+<section id="detection" class="section">
+  <div class="section-header">
+    <h2 class="section-title">VICTIM <span class="accent">DETECTION</span></h2>
+    <p class="section-sub">YOLO Computer Vision — Real-Time Casualty Detection & Rescue Support</p>
+  </div>
+  <div class="detection-container">
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="imgUpload" accept="image/*,video/*" style="display:none" onchange="handleUpload(event)"/>
+      <div class="upload-content" onclick="document.getElementById('imgUpload').click()">
+        <div class="upload-icon">📸</div>
+        <h3>Upload Disaster Scene Image</h3>
+        <p>Click to upload or drag & drop</p>
+        <p class="upload-hint">Supports JPG, PNG, MP4 — YOLO v8 Detection</p>
+      </div>
+    </div>
+    <div class="detection-results" id="detectionResults">
+      <div class="detection-canvas-wrap">
+        <canvas id="detectionCanvas" width="600" height="400"></canvas>
+        <div class="detection-overlay" id="detectionOverlay">
+          <div class="det-placeholder">
+            <div class="det-icon">🔍</div>
+            <p>Upload an image to begin YOLO detection</p>
+          </div>
+        </div>
+      </div>
+      <div class="detection-stats" id="detStats" style="display:none">
+        <div class="det-stat"><span class="det-label">Persons Detected</span><span class="det-val" id="personsCount">0</span></div>
+        <div class="det-stat"><span class="det-label">Injured (Est.)</span><span class="det-val danger" id="injuredCount">0</span></div>
+        <div class="det-stat"><span class="det-label">Safe Zones</span><span class="det-val success" id="safeCount">0</span></div>
+        <div class="det-stat"><span class="det-label">Confidence</span><span class="det-val" id="confScore">--</span></div>
+      </div>
+      <div class="rescue-guidance" id="rescueGuidance" style="display:none"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALERTS SECTION -->
+<section id="alerts" class="section">
+  <div class="section-header">
+    <h2 class="section-title">ALERTS & <span class="accent">RECOMMENDATIONS</span></h2>
+    <p class="section-sub">Location-Based Early Warning System & Safety Guidance</p>
+  </div>
+  <div class="alerts-grid">
+    <div class="live-alerts-panel">
+      <div class="panel-title">
+        <span class="pulse-dot"></span> Live Global Alerts
+      </div>
+      <div class="alerts-feed" id="alertsFeed">
+        <!-- populated by JS -->
+      </div>
+    </div>
+    <div class="location-panel">
+      <div class="panel-title">📍 Location Alert Check</div>
+      <div class="form-group">
+        <label>Enter Your Location</label>
+        <input type="text" id="userLocation" placeholder="City, Country or Coordinates"/>
+      </div>
+      <div class="form-group">
+        <label>Disaster Type</label>
+        <select id="alertType">
+          <option value="all">All Disasters</option>
+          <option value="earthquake">Earthquake</option>
+          <option value="flood">Flood</option>
+          <option value="hurricane">Hurricane</option>
+        </select>
+      </div>
+      <button class="btn-predict" onclick="checkLocationAlert()">Check My Area</button>
+      <div id="locationAlertResult" class="location-result" style="display:none"></div>
+    </div>
+    <div class="safety-panel">
+      <div class="panel-title">🛡️ Safety Recommendations</div>
+      <div class="safety-tabs">
+        <button class="safety-tab active" onclick="showSafety('earthquake')">🌍 EQ</button>
+        <button class="safety-tab" onclick="showSafety('flood')">🌊 Flood</button>
+        <button class="safety-tab" onclick="showSafety('hurricane')">🌀 Hurricane</button>
+      </div>
+      <div class="safety-content" id="safetyContent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD SECTION -->
+<section id="dashboard" class="section">
+  <div class="section-header">
+    <h2 class="section-title">MONITORING <span class="accent">DASHBOARD</span></h2>
+    <p class="section-sub">Real-Time Environmental Data & Disaster Risk Overview</p>
+  </div>
+  <div class="dashboard-grid">
+    <div class="dash-card risk-map">
+      <div class="card-title">🗺️ Global Risk Map</div>
+      <canvas id="riskMap" width="600" height="320"></canvas>
+    </div>
+    <div class="dash-card seismic-chart">
+      <div class="card-title">📈 Seismic Activity (24h)</div>
+      <canvas id="seismicChart" width="400" height="200"></canvas>
+    </div>
+    <div class="dash-card rainfall-chart">
+      <div class="card-title">🌧️ Rainfall Index (7 Days)</div>
+      <canvas id="rainfallChart" width="400" height="200"></canvas>
+    </div>
+    <div class="dash-card wind-gauge">
+      <div class="card-title">💨 Wind Speed Monitor</div>
+      <canvas id="windGauge" width="300" height="200"></canvas>
+    </div>
+    <div class="dash-card active-events">
+      <div class="card-title">⚠️ Active Events</div>
+      <div class="events-list" id="eventsList"></div>
+    </div>
+    <div class="dash-card response-status">
+      <div class="card-title">🚨 Response Teams</div>
+      <div class="teams-list" id="teamsList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHATBOT SECTION -->
+<section id="chatbot" class="section">
+  <div class="section-header">
+    <h2 class="section-title">AI <span class="accent">ASSISTANT</span></h2>
+    <p class="section-sub">Emergency Response Chatbot — 24/7 Disaster Guidance</p>
+  </div>
+  <div class="chat-container">
+    <div class="chat-sidebar">
+      <div class="chat-bot-avatar">
+        <div class="bot-face">🤖</div>
+        <div class="bot-info">
+          <strong>ARIA</strong>
+          <span>AI Response Intelligence Assistant</span>
+          <span class="bot-status"><span class="pulse-dot"></span> Online</span>
+        </div>
+      </div>
+      <div class="quick-questions">
+        <p class="qs-label">Quick Questions:</p>
+        <button class="qs-btn" onclick="askBot('What to do during an earthquake?')">🌍 Earthquake safety</button>
+        <button class="qs-btn" onclick="askBot('How to prepare for a flood?')">🌊 Flood preparation</button>
+        <button class="qs-btn" onclick="askBot('Hurricane evacuation steps?')">🌀 Hurricane evacuation</button>
+        <button class="qs-btn" onclick="askBot('How accurate is the prediction model?')">📊 Model accuracy</button>
+        <button class="qs-btn" onclick="askBot('What is YOLO detection?')">🔍 YOLO detection</button>
+        <button class="qs-btn" onclick="askBot('Emergency kit checklist?')">🎒 Emergency kit</button>
+      </div>
+    </div>
+    <div class="chat-main">
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Ask about disaster preparedness, predictions, or emergency procedures..." onkeydown="if(event.key==='Enter') sendMessage()"/>
+        <button class="chat-send" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHATBOT FLOAT BUTTON -->
+<button class="chat-float-btn" onclick="navigate('chatbot')" title="Open AI Chat">💬</button>
+
+<!-- NOTIFICATION TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
