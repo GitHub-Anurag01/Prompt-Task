@@ -230,7 +230,7 @@ Rescue Guidance Output
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - Connect real Python/Flask backend with trained ML models
 - Integrate live weather APIs (OpenWeather, NOAA)
